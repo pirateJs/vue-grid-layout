@@ -627,6 +627,10 @@
                         newPosition.top = clientRect.top - parentRect.top;
                         this.dragging = newPosition;
                         this.isDragging = true;
+                        this.$emit("movestart", {
+                          i: this.i,
+                          event
+                        });
                         break;
                     }
                     case "dragend": {
@@ -667,6 +671,7 @@
 //                        console.log("### drag => " + event.type + ", deltaX=" + coreEvent.deltaX + ", deltaY=" + coreEvent.deltaY);
 //                        console.log("### drag end => " + JSON.stringify(newPosition));
                         this.dragging = newPosition;
+                        this.$emit("moveing", event);
                         break;
                     }
                 }
